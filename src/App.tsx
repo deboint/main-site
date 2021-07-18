@@ -44,6 +44,9 @@ const App = () => {
             <Typography variant="h1" className={classes.headline}>
               deboint
             </Typography>
+            <Typography variant="subtitle1" className={classes.headline}>
+              <a href="mailto:chuck@deboint.com">contact</a>
+            </Typography>
           </Grid>
         </Grid>
       </div>
