@@ -10,7 +10,10 @@ import styled, { ThemeProvider as SCTHemeProvider } from 'styled-components';
 import theme from './theme';
 
 const GridContainer = styled(Grid)`
+${({theme}) => `
+  background-color: ${theme.palette.background.default};
   height: 100vh;
+  `}
 `
 
 const CompanyTitle = styled(Typography)`
