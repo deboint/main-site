@@ -2,69 +2,74 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import styled, { ThemeProvider as SCTHemeProvider } from 'styled-components';
 
-// TODO - is this 100vh applied across the board the best approach?
-const useStyles = makeStyles((theme) => ({
-  gridContainer: {
-    height: '100vh',
-  },
-  headline: {
-    textAlign: 'center',
-  },
-  blurb: {
-    textAlign: 'center',
-    padding: theme.spacing(2),
-  },
-  link: {
-    textDecoration: 'none',
-    color: theme.palette.text.primary
-  }
-}));
+import theme from './theme';
 
-/**
- * Colorscheme
- *
- * Red - #d24c31
- * Gold - #cac06b
- * oWhite - #edecd8
- * Blue - #7ecfd9
- * Slate - #628486
- */
+const GridContainer = styled(Grid)`
+  height: 100vh;
+`
+
+const CompanyTitle = styled(Typography)`
+${({theme}) => `
+  text-align: center;
+  color: ${theme.palette.primary.main}
+  `}
+`
+
+const Tagline = styled(Typography)`
+${({theme}) => `
+  text-align: center;
+  color: ${theme.palette.secondary.main}
+  `}
+`
+
+const CenteredHeadline = styled(Typography)`
+  text-align: center;
+`
+
+const Link = styled.a`
+${({theme}) => `
+  text-decoration: none;
+  color: ${theme.palette.text.primary}
+  `}
+`
 
 const App = () => {
-  const classes = useStyles();
-
   return (
     <React.Fragment>
-      <CssBaseline />
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        className={classes.gridContainer}
-      >
-        <Grid item xs={12}>
-          <Typography variant="h1" className={classes.headline}>
-            deboint
-          </Typography>
-          <Typography variant="subtitle1" className={classes.blurb}>
-            Solutions Engineered
-          </Typography>
-          <Typography variant="subtitle2" className={classes.headline}>
-            <a href="https://github.com/deboint" className={classes.link}>
-              <GitHubIcon />
-            </a>
-          </Typography>
-          <Typography variant="subtitle2" className={classes.headline}>
-            <a href="mailto:chuck@deboint.com" className={classes.link}>
-              <MailOutlineIcon />
-            </a>
-          </Typography>
-        </Grid>
-      </Grid>
+      <ThemeProvider theme={theme}>
+        <SCTHemeProvider theme={theme}>
+          <CssBaseline />
+          <GridContainer
+            container
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs={12}>
+              <CompanyTitle variant="h1">
+                deboint
+              </CompanyTitle>
+              <Tagline variant="subtitle1">
+                Solutions Engineered
+              </Tagline>
+              <CenteredHeadline variant="subtitle2">
+                <Link href="https://github.com/deboint">
+                  <GitHubIcon />
+                </Link>
+              </CenteredHeadline>
+              <CenteredHeadline variant="subtitle2">
+                <Link href="mailto:chuck@deboint.com">
+                  <MailOutlineIcon />
+                </Link>
+              </CenteredHeadline>
+            </Grid>
+          </GridContainer>
+        </SCTHemeProvider>
+      </ThemeProvider>
     </React.Fragment>
   )
 }
