@@ -8,9 +8,6 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 // TODO - is this 100vh applied across the board the best approach?
 const useStyles = makeStyles((theme) => ({
-  outerDiv: {
-    height: '100vh',
-  },
   gridContainer: {
     height: '100vh',
   },
@@ -43,33 +40,31 @@ const App = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <div className={classes.outerDiv}>
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="center"
-          className={classes.gridContainer}
-        >
-          <Grid item xs={12}>
-            <Typography variant="h1" className={classes.headline}>
-              deboint
-            </Typography>
-            <Typography variant="subtitle1" className={classes.blurb}>
-              Solutions Engineered
-            </Typography>
-            <Typography variant="subtitle2" className={classes.headline}>
-              <a href="https://github.com/deboint" className={classes.link}>
-                <GitHubIcon />
-              </a>
-            </Typography>
-            <Typography variant="subtitle2" className={classes.headline}>
-              <a href="mailto:chuck@deboint.com" className={classes.link}>
-                <MailOutlineIcon />
-              </a>
-            </Typography>
-          </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        className={classes.gridContainer}
+      >
+        <Grid item xs={12}>
+          <Typography variant="h1" className={classes.headline}>
+            deboint
+          </Typography>
+          <Typography variant="subtitle1" className={classes.blurb}>
+            Solutions Engineered
+          </Typography>
+          <Typography variant="subtitle2" className={classes.headline}>
+            <a href="https://github.com/deboint" className={classes.link}>
+              <GitHubIcon />
+            </a>
+          </Typography>
+          <Typography variant="subtitle2" className={classes.headline}>
+            <a href="mailto:chuck@deboint.com" className={classes.link}>
+              <MailOutlineIcon />
+            </a>
+          </Typography>
         </Grid>
-      </div>
+      </Grid>
     </React.Fragment>
   )
 }
