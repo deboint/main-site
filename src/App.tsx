@@ -15,15 +15,16 @@ const GridContainer = styled(Grid)`
 
 const CompanyTitle = styled(Typography)`
 ${({theme}) => `
+  color: ${theme.palette.primary.main};
   text-align: center;
-  color: ${theme.palette.primary.main}
   `}
 `
 
 const Tagline = styled(Typography)`
 ${({theme}) => `
+  color: ${theme.palette.secondary.main};
+  padding: ${theme.spacing(2)}px;
   text-align: center;
-  color: ${theme.palette.secondary.main}
   `}
 `
 
